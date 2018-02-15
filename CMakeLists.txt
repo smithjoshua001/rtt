@@ -33,6 +33,8 @@ MESSAGE( "Orocos RTT version ${RTT_VERSION}" )
 SET( PROJ_SOURCE_DIR ${orocos-rtt_SOURCE_DIR} )
 SET( PROJ_BINARY_DIR ${orocos-rtt_BINARY_DIR} )
 
+set (CMAKE_CXX_STANDARD 11)
+
 # Load the optional orocos-rtt.cmake file.
 INCLUDE(${PROJ_SOURCE_DIR}/orocos-rtt.cmake OPTIONAL)
 if (NOT EXISTS ${PROJ_SOURCE_DIR}/orocos-rtt.cmake)
