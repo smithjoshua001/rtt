@@ -449,7 +449,18 @@ namespace RTT
 #if (CONFIG_XENO_VERSION_MAJOR == 3)
             cpu_set_t cpu;
             CPU_ZERO(&cpu);
-            CPU_SET(cpu_affinity, &cpu);
+            if(cpu_affinity==~0){
+                for(int i = 0;i<std::thread::hardware_concurrency();i++){
+                    CPU_SET(i,&cpu);
+                }
+            }
+            else{
+                for(int i = 0;i<std::thread::hardware_concurrency();i++){
+                    if(cpu_affinity & (1 << i)){
+                        CPU_SET(i,&cpu);
+                    }
+                }
+            }
             return rt_task_set_affinity(&(task->xenotask),&cpu);
 #endif
             log(Error) << "rtos_task_set_cpu_affinity: Xenomai tasks don't allow to migrate to another CPU once created." << endlog();
