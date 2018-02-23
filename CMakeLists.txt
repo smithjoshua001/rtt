@@ -121,7 +121,7 @@ INCLUDE(config/rtt_macros.cmake)
 # Visit subdirs                                           #
 #                                                         #
 ###########################################################
-
+set (CMAKE_CXX_STANDARD 11)
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
 ADD_SUBDIRECTORY(rtt)
 ADD_SUBDIRECTORY(doc)

@@ -47,6 +47,7 @@
 #include "../../Logger.hpp"
 #include <signal.h>
 #include <execinfo.h>
+#include <thread>
 
 #if CONFIG_XENO_VERSION_MAJOR == 3
 #include <xenomai/init.h>
